@@ -47,7 +47,12 @@ def build_dataset(config, ues_word):
                 lin = line.strip()
                 if not lin:
                     continue
-                content, label = lin.split('\t')
+                #print(lin)
+                #print(lin.split('\t'))
+                try:
+                    content, label = lin.split('\t')
+                except:
+                    print(lin)
                 words_line = []
                 token = tokenizer(content)
                 seq_len = len(token)

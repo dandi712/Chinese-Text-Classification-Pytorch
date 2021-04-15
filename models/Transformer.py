@@ -69,7 +69,11 @@ class Model(nn.Module):
             out = encoder(out)
         out = out.view(out.size(0), -1)
         # out = torch.mean(out, 1)
+
+
         out = self.fc1(out)
+        out = torch.max(out, 1)[1].cpu()
+        
         return out
 
 
